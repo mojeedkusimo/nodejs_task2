@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartNg | Jvascript Task 2</title>
+</head>
+<body>
+    <h1>Please check the log for review. Thanks</h1>
+
+    <script>
+
+    let data = [
+        {
+            'principal': 2500,
+            'time': 1.8
+        },
+        {
+            'principal': 1000,
+            'time': 5
+        },
+        {
+            'principal': 3000,
+            'time': 1
+        },
+        {
+            'principal': 2000,
+            'time': 3
+        }
+    ];
+
+    function interestCalculator (array) {
+
+        let rate = '';
+        let interestData = [];
+
+        for (let i = 0; i < array.length; i++) {
+            
+            if ((array[i].principal >= 2500) && (array[i].time > 1) && (array[i].time < 3)) {
+                
+                rate = 3;
+                dataObject();
+                interestData.push(dataObject());
+            }
+
+            else if ((array[i].principal >= 2500) && (array[i].time >= 3)) {
+                
+                rate = 4;
+                dataObject();
+                interestData.push(dataObject());
+            }
+
+            else if ((array[i].principal < 2500) || (array[i].time <= 1)) {
+                
+                rate = 2;
+                dataObject();
+                interestData.push(dataObject());
+            }
+
+            else {
+
+                rate = 1;
+                dataObject();
+                interestData.push(dataObject());
+
+            }
+
+            function calculateInterest (p, r, t) {
+                return (p * r * t)/100;
+            }
+
+            function dataObject () {
+                let singleData = {
+                    'principal' : array[i].principal,
+                    'rate' : rate,
+                    'time' : array[i].time,
+                    'interest' : calculateInterest(array[i].principal, rate, array[i].time)
+                }
+
+                return singleData;
+            }
+        }
+        
+        console.log(interestData);
+        return interestData;
+    }
+
+    interestCalculator(data);
+
+    </script>
+</body>
+</html>
